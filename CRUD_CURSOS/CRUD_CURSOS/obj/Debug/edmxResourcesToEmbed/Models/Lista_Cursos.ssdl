@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversidadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Universidad.dbo.Cursos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="Nombre_Curso" />
+      <PropertyRef Name="Materias" />
+      <PropertyRef Name="Alumnos" />
+    </Key>
+    <Property Name="Nombre_Curso" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Materias" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Alumnos" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UniversidadModelStoreContainer">
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cursos].[Nombre_Curso] AS [Nombre_Curso], 
+    [Cursos].[Materias] AS [Materias], 
+    [Cursos].[Alumnos] AS [Alumnos]
+    FROM [dbo].[Cursos] AS [Cursos]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

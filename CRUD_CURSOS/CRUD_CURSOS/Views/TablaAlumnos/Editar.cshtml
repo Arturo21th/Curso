@@ -1,0 +1,36 @@
+﻿@model CRUD_CURSOS.Models.ViewModels.AgregarCursos
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Editar", "TablaAlumnos", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(d => d.Nombre_Cursos)
+            <div>
+                @Html.LabelFor(d => d.Alumnos)
+                @Html.TextBoxFor(d => d.Alumnos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Alumnos, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Nombre_Cursos)
+                @Html.TextBoxFor(d => d.Nombre_Cursos, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre_Cursos, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Materias)<br />
+                @Html.TextBoxFor(d => d.Materias, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Materias, null, new { @class = "red" })
+            </div>
+            <br />
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+
+    </div>
+}
